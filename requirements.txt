@@ -1,0 +1,8 @@
+numpy>=1.24
+scipy>=1.10
+h5py>=3.8
+torch>=2.1
+matplotlib>=3.7
+gmsh>=4.11
+jupytext>=1.15
+jupyter

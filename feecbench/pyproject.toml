@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "feecbench"
+version = "0.1.0"
+description = "FEEC-native PDE benchmark prototype (2D acoustic pilot, gmsh meshing)"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "h5py>=3.8",
+    "torch>=2.1",
+    "matplotlib>=3.7",
+    "gmsh>=4.11",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7",
+    "ruff>=0.4",
+    "jupytext>=1.15",
+    "nbconvert>=7",
+    "ipykernel",
+    "threadpoolctl",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"demo/*" = ["E402"]     # BLAS thread caps must be set before numpy is imported
+"scripts/*" = ["E402"]
+"tests/conftest.py" = ["E402"]

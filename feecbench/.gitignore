@@ -1,0 +1,7 @@
+__pycache__/
+*.egg-info/
+.ruff_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+*.tar.gz
+.DS_Store
